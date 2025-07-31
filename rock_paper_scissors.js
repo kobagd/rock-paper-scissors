@@ -1,5 +1,14 @@
 // start game
 // choose rock, paper or scissors
+function getHumanChoice() {
+    let humanChoice = prompt("Type rock, paper or scissors").toLowerCase();
+    if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+        return humanChoice;
+    } else {
+        alert("Wrong input!");
+    }
+}
+
 // computer chooses rock, paper or scissors randomly
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
