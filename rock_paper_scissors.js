@@ -9,8 +9,8 @@ playRound();
 function playRound() {
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
-    console.log(humanChoice)
-    console.log(computerChoice)
+    console.log("Your choice: " + humanChoice)
+    console.log("Computer's choice: " + computerChoice)
     getOutcome(humanChoice, computerChoice);
 }
 
@@ -37,7 +37,7 @@ function getComputerChoice() {
     };
 }
 
-// evaluate outcome
+// evaluate outcome and update score
 function getOutcome(x, y) {
     let outcome = String;
     // if player and computer chose the same, outcome is draw
@@ -47,15 +47,17 @@ function getOutcome(x, y) {
     } else if (x === "rock" && y === "scissors" ||
                x === "scissors" && y === "paper" ||
                x === "paper" && y === "rock") {
-        outcome = "You win! " + x + " beats " + y + "."
+        outcome = "You win! " + x + " beats " + y + ".";
+        playerScore += 1;
     // outcome for when computer beats player
     } else if (x === "rock" && y === "paper" ||
                x === "scissors" && y === "rock" ||
                x === "paper" && y === "scissors") {
-        outcome = "You lose! " + y + " beats " + x + "."
+        outcome = "You lose! " + y + " beats " + x + ".";
+        computerScore += 1;
     }
 
     console.log(outcome);
+    console.log("Player score: " + playerScore)
+    console.log("Computer score: " + computerScore)
 }
-
-// evaluate score
