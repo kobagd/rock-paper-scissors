@@ -1,12 +1,19 @@
-console.log("==============");
-
 // start game
+console.log("==============");
 let playerScore = 0;
 let computerScore = 0;
+playGame();
 
-playRound();
+// play 5 rounds
+function playGame() {
+    for (let count = 1; count < 6; count++) {
+    playRound();
+    }
+console.log("Final score, Player: " + playerScore + ", Computer: " + computerScore)
+}
 
 function playRound() {
+    console.log("==============");
     let humanChoice = getHumanChoice();
     let computerChoice = getComputerChoice();
     console.log("Your choice: " + humanChoice)
