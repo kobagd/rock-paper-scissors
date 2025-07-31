@@ -24,7 +24,10 @@ function playRound() {
 // choose rock, paper or scissors
 function getHumanChoice() {
     let humanChoice = prompt("Type rock, paper or scissors").toLowerCase();
-    if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+    let humanChoiceLetterOne = humanChoice.charAt(0)
+    humanChoice = humanChoiceLetterOne.toUpperCase() + humanChoice.slice(1);
+    console.log(humanChoice);
+    if (humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissors") {
         return humanChoice;
     } else {
         alert("Wrong input!");
@@ -36,11 +39,11 @@ function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
 
     if (computerChoice === 1) {
-        return "rock"
+        return "Rock"
     } else if (computerChoice === 2) {
-        return "paper"
+        return "Paper"
     } else if (computerChoice === 3) {
-        return "scissors"
+        return "Scissors"
     };
 }
 
@@ -51,15 +54,15 @@ function getOutcome(x, y) {
     if (x === y) {
         outcome = "It's a draw!"
     // outcome for when player beats computer
-    } else if (x === "rock" && y === "scissors" ||
-               x === "scissors" && y === "paper" ||
-               x === "paper" && y === "rock") {
+    } else if (x === "Rock" && y === "Scissors" ||
+               x === "Scissors" && y === "Paper" ||
+               x === "Paper" && y === "Rock") {
         outcome = "You win! " + x + " beats " + y + ".";
         playerScore += 1;
     // outcome for when computer beats player
-    } else if (x === "rock" && y === "paper" ||
-               x === "scissors" && y === "rock" ||
-               x === "paper" && y === "scissors") {
+    } else if (x === "Rock" && y === "Paper" ||
+               x === "Scissors" && y === "Rock" ||
+               x === "Paper" && y === "Scissors") {
         outcome = "You lose! " + y + " beats " + x + ".";
         computerScore += 1;
     }
